@@ -7,8 +7,8 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func InitMongo() *mongo.Client {
-	client, err := mongo.Connect(context.Background(), options.Client().ApplyURI(constant.MongoUrl))
+func InitMongo(mongoUrl string) *mongo.Client {
+	client, err := mongo.Connect(context.Background(), options.Client().ApplyURI(mongoUrl))
 	if err != nil {
 		panic("error mongo client")
 	}
